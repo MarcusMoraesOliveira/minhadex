@@ -32,6 +32,9 @@ async function getpokemons(url){
   })
 }
 async function getpokemon(url){
+  if(url == "https://pokeapi.co/api/v2/pokemon/100/"){
+     return;
+  }
   let poke = await friendlyFetch(url)
   getDesc(poke.species.url)
   pokemons.push(poke)
@@ -42,7 +45,7 @@ async function getDesc(url) {
 }
 
  getPokeTimer = setInterval(() => {
-  if(pokemons.length==151 && pokemon_desc.length==151){
+  if(pokemons.length==150 && pokemon_desc.length==150){
     console.log(pokemon_desc)
     sortPoke()
     BuildInterface()
